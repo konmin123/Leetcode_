@@ -5,7 +5,7 @@ x = int(input("X : "))
 y = int(input("Y : "))
 
 
-def RecIntMult(x1, y1):
+def KaraIntMult(x1, y1):
     if x1/10 < 1 and y1/10 < 1:
         return x1 * y1
     else:
@@ -13,11 +13,13 @@ def RecIntMult(x1, y1):
         n2 = n//2
         a, b = divmod(x1, 10**n2)
         c, d = divmod(y1, 10**n2)
-        ac = RecIntMult(a, c)
-        ad = RecIntMult(a, d)
-        bd = RecIntMult(b, d)
-        bc = RecIntMult(b, c)
-        return ac*10**n+(ad+bc)*10**n2+bd
+        ac = KaraIntMult(a, c)
+        bd = KaraIntMult(b, d)
+        p = a+b
+        q = c+d
+        pq = p*q
+        adbc = pq-ac-bd
+        return ac*10**n+adbc*10**n2+bd
 
 
-print(RecIntMult(x, y))
+print(KaraIntMult(x, y))
