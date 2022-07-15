@@ -37,3 +37,21 @@
 # come
 # up
 # with an algorithm that is less than O(n2) time complexity?
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 10
+
+
+def two_sum(sequence: list) -> list:
+    output = []
+    for first_index, first_value in enumerate(nums):
+        for second_index, second_value in enumerate(nums[first_index + 1:]):
+            if first_value + second_value == target:
+                output.append(first_index)
+                output.append(first_index + 1 + second_index)
+                return output
+
+
+if __name__ == '__main__':
+    print(two_sum(nums))
+
