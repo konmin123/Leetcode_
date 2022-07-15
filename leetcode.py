@@ -1,6 +1,6 @@
 from typing import List
 nums = [15, 11, 7, 2]
-target = 9
+target = 36
 
 
 class Solution:
