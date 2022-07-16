@@ -39,8 +39,6 @@ list_1 = [1, 1, 3]
 list_2 = [2, 2, 5]
 
 
-class Merger:
-    @staticmethod
-    def merge_two_sorted_lists(first_list: List[int], second_list: List[int]) -> List[int]:
-        for _ in range(len(list_1)+len(list_2)):
-            pass
+def merge_two_sorted_lists(first_list: List[int], second_list: List[int]) -> List[int]:
+    for _ in range(len(list_1)+len(list_2)):
+        pass
