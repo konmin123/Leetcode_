@@ -35,10 +35,33 @@ Constraints:
 """
 from typing import List
 
-list_1 = [1, 1, 3]
-list_2 = [2, 2, 5]
+list_1 = [1, 2, 4]
+list_2 = [2, 3, 6, 7]
 
 
 def merge_two_sorted_lists(first_list: List[int], second_list: List[int]) -> List[int]:
-    for _ in range(len(list_1)+len(list_2)):
-        pass
+    i = 0
+    j = 0
+    output = []
+    if not first_list or not second_list:
+        output.extend(first_list)
+        output.extend(second_list)
+    else:
+        while len(output) < len(first_list) + len(second_list):
+            if first_list[i] <= second_list[j]:
+                output.append(first_list[i])
+                i += 1
+            else:
+                output.append(second_list[j])
+                j += 1
+            if i == len(first_list):
+                output.extend(second_list[j:])
+                break
+            if j == len(second_list):
+                output.extend(first_list[i:])
+                break
+    return output
+
+
+if __name__ == '__main__':
+    print(merge_two_sorted_lists(list_1, list_2))
