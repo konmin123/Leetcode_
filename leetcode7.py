@@ -54,7 +54,7 @@ Constraints:
 """
 from array import array
 
-arr = array("i", [0,0,1,1,1,2,2,3,3,4])
+arr = array("i", [0, 0, 1, 1, 1, 2, 2, 3, 3, 4])
 
 
 def array_sort_uniq(seq: array):
