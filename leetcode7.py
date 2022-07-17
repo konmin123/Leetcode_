@@ -54,26 +54,25 @@ Constraints:
 """
 from array import array
 
-arr = array("i", [0, 0, 1, 1, 1, 2, 2, 3, 3, 4])
-print(arr[1:])
+arr = array("i", [0,0,1,1,1,2,2,3,3,4])
 
 
-def array_sort_uniq(sequence: array):
-    max_value = sequence[-1]
+def array_sort_uniq(seq: array):
+    max_value = seq[-1]
     uniq = 1
+    last_uniq_value = seq[0]
+    current_index = 1
     index_for_change = 1
-    for index, value in enumerate(sequence[1:]):
-        print(value)
-        if value > sequence[index - 1]:
+    while last_uniq_value != max_value:
+        if seq[current_index] != last_uniq_value:
+            uniq += 1
+            if index_for_change != current_index:
+                seq[index_for_change] = seq[current_index]
             index_for_change += 1
-            uniq += 1
-        if value == sequence[index_for_change]:
-            sequence[index_for_change], sequence[index] = value, sequence[index_for_change]
-            uniq += 1
-        if value == max_value:
-            break
-    return uniq
-123
+        last_uniq_value = seq[current_index]
+        current_index += 1
+    return arr[:uniq], uniq
+
 
 if __name__ == '__main__':
     print(array_sort_uniq(arr))
