@@ -56,14 +56,6 @@ class Solution:
             digits[-1] = 0
             digits[-2] += 1
 
-        # str_value = ''
-        # for i in digits:
-        #     str_value += str(i)
-        # int_value = int(str_value)
-        # int_value += 1
-        # output = [int(i) for i in str(int_value)]
-        # return output
-
 
 if __name__ == '__main__':
     Solution.plus_one(nums)
