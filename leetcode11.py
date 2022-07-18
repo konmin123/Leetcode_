@@ -32,17 +32,18 @@ Constraints:
 
 """
 
-str_ = "luffy is still joyboy  "
+str_ = "Hello World"
 
 
 class Solution:
     @staticmethod
     def length_of_last_word(s: str) -> int:
+        s_for_use = "  " + s
         met_word = False
         index_symbol = -1
         len_word = 0
         while True:
-            if s[index_symbol].isalpha():
+            if s_for_use[index_symbol].isalpha():
                 met_word = True
                 len_word += 1
             elif met_word:
