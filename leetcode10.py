@@ -41,7 +41,7 @@ Constraints:
 """
 from typing import List
 
-nums = [4, 3, 2, 1]
+nums = [1, 9, 9]
 
 
 class Solution:
@@ -53,8 +53,18 @@ class Solution:
             digits.insert(0, 1)
             digits[-1] = 0
         else:
-            digits[-1] = 0
-            digits[-2] += 1
+            index_for_change = -1
+            for _ in range(len(digits)):
+                if digits[index_for_change] == 9:
+                    digits[index_for_change] = 0
+                    index_for_change -= 1
+                    if index_for_change < -len(digits):
+                        digits.insert(0, 1)
+                        return digits
+                else:
+                    break
+            digits[index_for_change] += 1
+        return digits
 
 
 if __name__ == '__main__':
