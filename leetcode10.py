@@ -41,20 +41,30 @@ Constraints:
 """
 from typing import List
 
-nums = [9]
+nums = [4, 3, 2, 1]
 
 
 class Solution:
     @staticmethod
-    def plus_one(digits: List[int]) -> List[int]:
-        str_value = ''
-        for i in digits:
-            str_value += str(i)
-        int_value = int(str_value)
-        int_value += 1
-        output = [int(i) for i in str(int_value)]
-        return output
+    def plus_one(digits: List[int]):
+        if digits[-1] < 9:
+            digits[-1] += 1
+        elif len(digits) == 1 and digits[-1] == 9:
+            digits.insert(0, 1)
+            digits[-1] = 0
+        else:
+            digits[-1] = 0
+            digits[-2] += 1
+
+        # str_value = ''
+        # for i in digits:
+        #     str_value += str(i)
+        # int_value = int(str_value)
+        # int_value += 1
+        # output = [int(i) for i in str(int_value)]
+        # return output
 
 
 if __name__ == '__main__':
-    print(Solution.plus_one(nums))
+    Solution.plus_one(nums)
+    print(nums)
