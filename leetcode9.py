@@ -31,8 +31,8 @@ Constraints:
 
 """
 
-haystack = "hello"
-needle = "lol"
+haystack = ""
+needle = ""
 
 
 class Solution:
