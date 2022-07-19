@@ -20,8 +20,8 @@ Constraints:
     a and b consist only of '0' or '1' characters.
     Each string does not contain leading zeros except for the zero itself."""
 
-num1 = "11"
-num2 = "0"
+num1 = "1010"
+num2 = "1011"
 
 
 class Solution:
@@ -35,7 +35,6 @@ class Solution:
             list_value = dict_of_sum[int(i) + memory]
             output = str(list_value[0]) + output
             memory = list_value[1]
-            continue
         if memory:
             output = '1' + output
         return output
@@ -43,4 +42,3 @@ class Solution:
 
 if __name__ == '__main__':
     print(Solution.add_binary(num1, num2))
-    
