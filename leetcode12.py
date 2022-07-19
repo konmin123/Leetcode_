@@ -20,8 +20,8 @@ Constraints:
     a and b consist only of '0' or '1' characters.
     Each string does not contain leading zeros except for the zero itself."""
 
-num1 = "1010"
-num2 = "1011"
+num1 = "11"
+num2 = "0"
 
 
 class Solution:
@@ -30,23 +30,12 @@ class Solution:
         int_ = int(a) + int(b)
         output = ''
         memory = 0
+        dict_of_sum = {0: [0, 0], 1: [1, 0], 2: [0, 1], 3: [1, 1]}
         for i in str(int_)[::-1]:
-            if int(i) + memory == 0:
-                output = '0' + output
-                memory = 0
-                continue
-            if int(i) + memory == 1:
-                output = '1' + output
-                memory = 0
-                continue
-            if int(i) + memory == 2:
-                output = '0' + output
-                memory = 1
-                continue
-            if int(i) + memory == 3:
-                output = '1' + output
-                memory = 1
-                continue
+            list_value = dict_of_sum[int(i) + memory]
+            output = str(list_value[0]) + output
+            memory = list_value[1]
+            continue
         if memory:
             output = '1' + output
         return output
