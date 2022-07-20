@@ -31,21 +31,19 @@ value_for_sqrt = 8
 
 class Solution:
     @staticmethod
-    def mySqrt(x: int):
+    def mySqrt(x: int) -> int:
         left = 0
         right = x
-        count = 0
         while True:
             mid = (left + right) // 2
             print(left, right, mid)
             if mid * mid <= x < (mid + 1) * (mid + 1):
-                return mid, count
+                return mid
             elif mid * mid > x:
                 right = mid - 1
             else:
                 left = mid + 1
-            count += 1
 
 
 if __name__ == '__main__':
-    print(Solution.mySqrt(4000000113))
+    print(Solution.mySqrt(25))
