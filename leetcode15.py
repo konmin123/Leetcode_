@@ -29,10 +29,10 @@ class ListNode:
         self.next = next
 
 
-node5 = ListNode(3)
-node4 = ListNode(2, node5)
-node3 = ListNode(2, node4)
-node2 = ListNode(1, node3)
+node5 = ListNode(5)
+node4 = ListNode(4, node5)
+node3 = ListNode(3, node4)
+node2 = ListNode(2, node3)
 node1 = ListNode(1, node2)
 
 
