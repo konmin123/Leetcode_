@@ -48,28 +48,29 @@ Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 """
 from typing import List
 
-nums1 = [1, 2, 3, 8, 0, 0, 0]
-m = 4
-nums2 = [2, 2, 5]
-n = 3
+nums1 = [1]
+m = 1
+nums2 = [0]
+n = 0
 
 
 class Solution:
     @staticmethod
-    def merge(nums1_: List[int], m_: int, nums2_: List[int], n_: int) -> None:
+    def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
         index_for_set = -1
-        for _ in range(m_ + n_):
-            if m_-1 < 0 or n_-1 < 0:
+
+        for _ in range(m + n):
+            if n - 1 < 0:
                 break
-            if nums1_[m_ - 1] > nums2_[n_ - 1]:
-                nums1_[index_for_set] = nums1_[m_ - 1]
-                m_ -= 1
+            if nums1[m - 1] > nums2[n - 1]:
+                nums1[index_for_set] = nums1[m - 1]
+                m -= 1
             else:
-                nums1_[index_for_set] = nums2_[n_ - 1]
-                n_ -= 1
+                nums1[index_for_set] = nums2[n - 1]
+                n -= 1
             index_for_set -= 1
 
 
