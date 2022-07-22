@@ -38,9 +38,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-    # def __str__(self):
-    #     return f'TreeNode()'
-
 
 node2 = TreeNode(2)
 node1 = TreeNode(1, None, node2)
@@ -56,12 +53,11 @@ node17 = TreeNode(17, node16, node20)
 node9 = TreeNode(9, node6, node17)
 root = node9
 
-print(root)
-
 
 class Solution:
     @staticmethod
-    def inorder_traversal(root_: Optional[TreeNode]) -> List[int]:
+    def inorder_traversal_1(root_: Optional[TreeNode]) -> List[int]:
+        """Обход дерева в ширину"""
         output_list = []
         queue = [root_]
         for node in queue:
@@ -72,7 +68,30 @@ class Solution:
                 queue.append(node.right)
         return output_list
 
+    @staticmethod
+    def inorder_traversal_2(root_: Optional[TreeNode]) -> List[int]:
+        """Обход дерева в глубину"""
+        output_list = []
+        queue_left = [root_]
+        queue_right = []
+        while queue_left or queue_right:
+            current_node = None
+            if queue_left:
+                current_node = queue_left[0]
+                queue_left.pop(0)
+            elif queue_right:
+                current_node = queue_right[0]
+                queue_right.pop(0)
+            else:
+                return output_list
+            output_list.append(current_node.val)
+            if current_node.left:
+                queue_left.append(current_node.left)
+            if current_node.right:
+                queue_right.insert(0, current_node.right)
+        return output_list
+
 
 if __name__ == '__main__':
-    print(Solution.inorder_traversal(root))
+    print(Solution.inorder_traversal_2(root))
 
