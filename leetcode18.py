@@ -33,6 +33,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 node8_1 = TreeNode(8)
 node6_1 = TreeNode(6)
 node7_1 = TreeNode(7, node6_1, node8_1)
@@ -46,7 +47,22 @@ root2 = node7_2
 
 class Solution:
     @staticmethod
-    def is_same_tree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        output_1 = []
-        output_2 = []
-        
+    def is_same_tree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        output_list = [[], []]
+        queue = [[p], [q]]
+        for index in range(2):
+            for node in queue[index]:
+                output_list[index].append(node.val)
+                if node.left:
+                    queue[index].append(node.left)
+                if node.right:
+                    queue[index].append(node.right)
+        print(output_list)
+        if output_list[0] == output_list[1]:
+            return True
+        else:
+            return False
+
+
+if __name__ == '__main__':
+    print(Solution.is_same_tree(root1, root2))
