@@ -75,7 +75,6 @@ class Solution:
         queue_left = [root_]
         queue_right = []
         while queue_left or queue_right:
-            current_node = None
             if queue_left:
                 current_node = queue_left[0]
                 queue_left.pop(0)
@@ -93,5 +92,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print(Solution.inorder_traversal_2(root))
+    print(Solution.inorder_traversal_1(root))
 
