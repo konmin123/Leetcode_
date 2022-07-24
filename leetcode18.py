@@ -57,7 +57,6 @@ class Solution:
                     queue[index].append(node.left)
                 if node.right:
                     queue[index].append(node.right)
-        print(output_list)
         if output_list[0] == output_list[1]:
             return True
         else:
