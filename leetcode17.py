@@ -90,7 +90,22 @@ class Solution:
                 queue_right.insert(0, current_node.right)
         return output_list
 
+    @staticmethod
+    def inorder_traversal_3(root_: Optional[TreeNode]) -> List[int]:
+        """Рекурсивный обход в глубину"""
+
+        if not root_:
+            return []
+        if not (root_.left or root_.right):
+            return [root_.val]
+
+        left = Solution.inorder_traversal_3(root_.left) if root_.left else []
+
+        right = Solution.inorder_traversal_3(root_.right) if root_.right else []
+
+        return [root_.val] + left + right
+
 
 if __name__ == '__main__':
-    print(Solution.inorder_traversal_1(root))
+    print(Solution.inorder_traversal_2(root))
 
