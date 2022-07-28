@@ -24,7 +24,7 @@ Constraints:
     -104 <= Node.val <= 104
 
 """
-from typing import Optional
+from typing import Optional, List
 
 
 class TreeNode:
@@ -62,6 +62,26 @@ class Solution:
         else:
             return False
 
+    @staticmethod
+    def is_same_tree_rec(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        """Рекурсивное сравнение деревьев"""
+        def inorder_traversal_3(root_: Optional[TreeNode]) -> List[int]:
+            if not root_:
+                return []
+            if not (root_.left or root_.right):
+                return [root_.val]
+
+            left = inorder_traversal_3(root_.left) if root_.left else []
+
+            right = inorder_traversal_3(root_.right) if root_.right else []
+
+            return [root_.val] + left + right
+
+        if inorder_traversal_3(p) == inorder_traversal_3(q):
+            return True
+        else:
+            return False
+
 
 if __name__ == '__main__':
-    print(Solution.is_same_tree(root1, root2))
+    print(Solution.is_same_tree_rec(root1, root2))
