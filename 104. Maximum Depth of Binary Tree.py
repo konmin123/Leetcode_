@@ -41,6 +41,7 @@ root = node9
 class Solution:
     @staticmethod
     def max_depth(root_: Optional[TreeNode]) -> int:
+        """Итеративный способ обхода в ширину для поиска глубины"""
         if isinstance(root_, TreeNode):
             queue = [root_]
             queue_next_tour = []
@@ -59,6 +60,16 @@ class Solution:
         else:
             return 0
 
+    @staticmethod
+    def max_depth_rec(root_: Optional[TreeNode]) -> int:
+        """Рекурсивный способ поиска глубины"""
+        def dfs(root__, depth):
+            if not root__:
+                return depth
+            return max(dfs(root__.left, depth + 1), dfs(root__.right, depth + 1))
+
+        return dfs(root, 0)
+
 
 if __name__ == '__main__':
-    print(Solution.max_depth(root))
+    print(Solution.max_depth_rec(root))
