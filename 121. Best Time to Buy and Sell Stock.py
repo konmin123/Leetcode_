@@ -25,18 +25,26 @@ Constraints:
 """
 from typing import List
 
-price = [7, 6, 4, 3, 1]
+price = [7, 1, 5, 3, 6, 4]
 
 
 class Solution:
     @staticmethod
     def max_profit(prices: List[int]) -> int:
         max_profit = 0
-        for index, value in enumerate(prices):
-            for j in prices[index + 1:]:
-                if j - value > max_profit:
-                    max_profit = j - value
+        min_price = float("inf")
+        for i in range(len(prices)):
+            min_price = min(min_price, price[i])
+            max_profit = max(max_profit, prices[i]-min_price)
         return max_profit
+
+    # def max_profit(prices: List[int]) -> int:
+    #     max_profit = 0
+    #     for index, value in enumerate(prices):
+    #         for j in prices[index + 1:]:
+    #             if j - value > max_profit:
+    #                 max_profit = j - value
+    #     return max_profit
 
 
 if __name__ == '__main__':
