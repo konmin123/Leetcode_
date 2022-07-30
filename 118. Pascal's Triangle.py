@@ -38,5 +38,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print(Solution.generate(10))
+    print(Solution.generate(5))
 
