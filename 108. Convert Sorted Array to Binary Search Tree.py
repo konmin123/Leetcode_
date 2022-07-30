@@ -33,5 +33,24 @@ class TreeNode:
 
 
 class Solution:
-    def sorted_array_to_bst(self, nums: List[int]) -> Optional[TreeNode]:
-        ...
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        if len(nums) == 1:
+            return TreeNode(val=nums[0])
+        if len(nums) == 0:
+            return None
+
+        m = len(nums)//2
+
+        return TreeNode(
+            val=nums[m],
+            left=self.sortedArrayToBST(nums[:m]),
+            right=self.sortedArrayToBST(nums[m+1:])
+        )
+
+
+if __name__ == '__main__':
+    s = Solution
+    print(s.sortedArrayToBST([-10, -3, 0, 5, 9]))
+
+
+
