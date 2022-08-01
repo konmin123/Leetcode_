@@ -33,18 +33,20 @@ Constraints:
 class Solution:
     @staticmethod
     def is_palindrome(s: str) -> bool:
-        left_str = " "
-        right_str = " "
-        for index in range(len(s)):
-            if s[index].isalpha():
-                left_str = left_str + s[index].lower()
-            if s[-1 - index].isalpha():
-                right_str = right_str + s[-1 - index].lower()
-        if left_str == right_str:
-            return True
-        else:
-            return False
+        # left_str = " "
+        # right_str = " "
+        # for index in range(len(s)):
+        #     if s[index].isalpha():
+        #         left_str = left_str + s[index].lower()
+        #     if s[-1 - index].isalpha():
+        #         right_str = right_str + s[-1 - index].lower()
+        # if left_str == right_str:
+        #     return True
+        # else:
+        #     return False
+        s = ''.join(c.lower() for c in s if c.isalnum())
+        return s == s[::-1]
 
 
 if __name__ == '__main__':
-    print(Solution.is_palindrome("Abba"))
+    print(Solution.is_palindrome("A man, a plan, a canal: Panama"))
