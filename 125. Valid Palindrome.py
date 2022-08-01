@@ -28,3 +28,23 @@ Constraints:
     1 <= s.length <= 2 * 105
     s consists only of printable ASCII characters.
 """
+
+
+class Solution:
+    @staticmethod
+    def is_palindrome(s: str) -> bool:
+        left_str = " "
+        right_str = " "
+        for index in range(len(s)):
+            if s[index].isalpha():
+                left_str = left_str + s[index].lower()
+            if s[-1 - index].isalpha():
+                right_str = right_str + s[-1 - index].lower()
+        if left_str == right_str:
+            return True
+        else:
+            return False
+
+
+if __name__ == '__main__':
+    print(Solution.is_palindrome("Abba"))
