@@ -23,6 +23,7 @@ Constraints:
     1 <= prices.length <= 105
     0 <= prices[i] <= 104
 """
+import timeit
 from typing import List
 
 price = [7, 1, 5, 3, 6, 4]
@@ -38,14 +39,21 @@ class Solution:
             max_profit = max(max_profit, prices[i]-min_price)
         return max_profit
 
-    # def max_profit(prices: List[int]) -> int:
-    #     max_profit = 0
-    #     for index, value in enumerate(prices):
-    #         for j in prices[index + 1:]:
-    #             if j - value > max_profit:
-    #                 max_profit = j - value
-    #     return max_profit
+    @staticmethod
+    def max_profit2(prices: List[int]) -> int:
+        max_profit = 0
+        for index, value in enumerate(prices):
+            for j in prices[index + 1:]:
+                if j - value > max_profit:
+                    max_profit = j - value
+        return max_profit
 
 
 if __name__ == '__main__':
-    print(Solution.max_profit(price))
+    start_time = timeit.default_timer()
+    Solution.max_profit(price)
+    print(timeit.default_timer() - start_time)
+
+    start_time = timeit.default_timer()
+    Solution.max_profit2(price)
+    print(timeit.default_timer() - start_time)
