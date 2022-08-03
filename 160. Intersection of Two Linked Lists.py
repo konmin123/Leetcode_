@@ -60,11 +60,40 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, x):
+    def __init__(self, x, next_=None):
         self.val = x
-        self.next = None
+        self.next = next_
+
+
+# class Linked_list:
+#     @staticmethod
+#     def new_list(head):
+
+node_b3 = ListNode(4)
+node_b2 = ListNode(2, node_b3)
+node_b1 = ListNode(3, node_b2)
+
+
+node_a4 = ListNode(2, node_b3)
+node_a3 = ListNode(1, node_a4)
+node_a2 = ListNode(9, node_a3)
+node_a1 = ListNode(1, node_a2)
 
 
 class Solution:
-    def get_intersection_node(self, head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:
-        ...
+    @staticmethod
+    def get_intersection_node(head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:  # broot force O(n**2), O(1)
+        current_node_a = head_a
+        current_node_b = head_b
+        while current_node_a:
+            while current_node_b:
+                if current_node_a.val == current_node_b.val and current_node_a.next == current_node_b.next:
+                    return current_node_a.val
+                else:
+                    current_node_b = current_node_b.next
+            current_node_a = current_node_a.next
+            current_node_b = head_b
+
+
+if __name__ == '__main__':
+    print(Solution.get_intersection_node(node_a1, node_b1))
