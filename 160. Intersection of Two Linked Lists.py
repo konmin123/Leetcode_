@@ -94,6 +94,23 @@ class Solution:
             current_node_a = current_node_a.next
             current_node_b = head_b
 
+    @staticmethod
+    def get_intersection_node_2(head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:  # hash dict, O(n), O(n/2)
+        dict_val_1 = {}
+        current_node_a = head_a
+        current_node_b = head_b
+        index = 0
+        while current_node_a:
+            dict_val_1[index] = current_node_a.val
+            current_node_a = current_node_a.next
+            index += 1
+        while current_node_b:
+            if current_node_b.val in dict_val_1.values():
+                return current_node_b.val
+            else:
+                current_node_b = current_node_b.next
+        return None
+
 
 if __name__ == '__main__':
-    print(Solution.get_intersection_node(node_a1, node_b1))
+    print(Solution.get_intersection_node_2(node_a1, node_b1))
