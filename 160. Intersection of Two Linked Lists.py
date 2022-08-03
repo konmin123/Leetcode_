@@ -82,7 +82,7 @@ node_a1 = ListNode(1, node_a2)
 
 class Solution:
     @staticmethod
-    def get_intersection_node(head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:  # broot force O(n**2), O(1)
+    def get_intersection_node(head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:  # brute force O(n**2), O(1)
         current_node_a = head_a
         current_node_b = head_b
         while current_node_a:
