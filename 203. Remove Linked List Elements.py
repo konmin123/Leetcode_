@@ -27,18 +27,53 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next_=None):
         self.val = val
-        self.next = next
+        self.next = next_
+
+    @staticmethod
+    def init_linked_list(seq):
+        prev = None
+        for value in seq[::-1]:
+            if not prev:
+                prev = ListNode(val=value)
+            else:
+                prev = ListNode(val=value, next_=prev)
+        return prev
 
 
-node5 = ListNode(5)
-node4 = ListNode(4, node5)
-node3 = ListNode(3, node4)
-node2 = ListNode(2, node3)
-node1 = ListNode(1, node2)
+head_list_nodes = ListNode.init_linked_list([1, 2, 3, 4, 5, 6])
 
 
 class Solution:
-    def remove_elements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        ...
+    @staticmethod
+    def remove_elements(head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        current_node = head
+        next_node = None
+        prev_node = None
+        while current_node:
+            next_node = current_node.next
+            if not prev_node and current_node.val == val:
+                head = current_node.next
+                current_node.next = None
+            if prev_node and current_node.val == val:
+                prev_node.next = next_node
+            if not next_node and current_node.val == val:
+                prev_node.next = None
+            prev_node = current_node
+            current_node = next_node
+        return head
+
+    @staticmethod
+    def val_linked_list(head: Optional[ListNode]) -> list:
+        current_node = head
+        list_values = []
+        while current_node:
+            list_values.append(current_node.val)
+            current_node = current_node.next
+        return list_values
+
+
+if __name__ == '__main__':
+    head_list_nodes = Solution.remove_elements(head_list_nodes, 5)
+    print(Solution.val_linked_list(head_list_nodes))
