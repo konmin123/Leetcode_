@@ -34,3 +34,54 @@ Constraints:
     lists[i] is sorted in ascending order.
     The sum of lists[i].length will not exceed 104.
 """
+from typing import Optional, List
+
+
+class ListNode:
+    def __init__(self, val=0, next_=None):
+        self.val = val
+        self.next = next_
+
+    @staticmethod
+    def init_k_ll(k=1, len_=1) -> list:
+        list_of_heads = []
+        if k >= 1:
+            for head in range(k):
+                current_node = ListNode(1)
+                list_of_heads.append(current_node)
+                if len_ > 1:
+                    for value in range(2, len_ + 1):
+                        next_node = ListNode(value)
+                        current_node.next = next_node
+                        current_node = next_node
+        return list_of_heads
+
+
+class Solution:
+    @staticmethod
+    def merge_k_lists(lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        dict_values = {}
+        for head in lists:
+            current_node = head
+            while current_node:
+                if current_node.val in dict_values:
+                    dict_values[current_node.val] += 1
+                    current_node = current_node.next
+                else:
+                    dict_values[current_node.val] = 1
+                    current_node = current_node.next
+        if dict_values:
+            head = ListNode(min(dict_values))
+            current_node = head
+            dict_values[min(dict_values)] -= 1
+            for key in dict_values:
+                while dict_values[key] > 0:
+                    current_node.next = ListNode(key)
+                    current_node = current_node.next
+                    dict_values[key] -= 1
+            return head
+
+
+if __name__ == '__main__':
+    x = ListNode.init_k_ll(1, 1)
+    print(Solution.merge_k_lists(x))
