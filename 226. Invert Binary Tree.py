@@ -27,17 +27,16 @@ class Solution:
         list_for_links = [root]
         list_new_nodes = []
         current_index = 1
-        while current_index < len(sequence):    # Пока индекс значения для создания ноды корректный - продолжаем
-            for i in range(2 * len(list_for_links)):  # Мы тут создаём список новых нод
+        while current_index < len(sequence):
+            for i in range(2 * len(list_for_links)):
                 value_for_new_node = sequence[current_index]
-                print(value_for_new_node, current_index)
                 if value_for_new_node:
                     list_new_nodes.append(TreeNode(value_for_new_node))
                 else:
                     list_new_nodes.append(None)
                 current_index += 1
             count_for_link = 0
-            for node in list_for_links:  # Тут мы связываем ноды
+            for node in list_for_links:
                 if node is TreeNode:
                     node.left = list_new_nodes[count_for_link]
                     count_for_link += 1
@@ -45,7 +44,6 @@ class Solution:
                     count_for_link += 1
                 else:
                     count_for_link += 2
-            print(list_for_links, list_new_nodes)
             list_for_links = list_new_nodes
             list_new_nodes = []
 
