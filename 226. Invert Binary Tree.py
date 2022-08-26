@@ -21,37 +21,8 @@ class TreeNode:
 
 
 class Solution:
-    @staticmethod
-    def converter(sequence: list) -> TreeNode:
-        root = TreeNode(sequence[0])
-        list_for_links = [root]
-        list_new_nodes = []
-        current_index = 1
-        while current_index < len(sequence):
-            for i in range(2 * len(list_for_links)):
-                value_for_new_node = sequence[current_index]
-                if value_for_new_node:
-                    list_new_nodes.append(TreeNode(value_for_new_node))
-                else:
-                    list_new_nodes.append(None)
-                current_index += 1
-            count_for_link = 0
-            for node in list_for_links:
-                if node is TreeNode:
-                    node.left = list_new_nodes[count_for_link]
-                    count_for_link += 1
-                    node.right = list_new_nodes[count_for_link]
-                    count_for_link += 1
-                else:
-                    count_for_link += 2
-            list_for_links = list_new_nodes
-            list_new_nodes = []
+    ...
 
-        return root
-
-
-if __name__ == '__main__':
-    s = Solution.converter([10, None, 15, None, None, 13, None])
 
 
 
