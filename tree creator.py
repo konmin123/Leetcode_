@@ -8,58 +8,59 @@ class TreeNode:
         self.right = right
 
 
-class TreeCreator:
-    @staticmethod
-    def tree_creator(sequence):
-        root = TreeNode(sequence[0])
-        nodes_for_links = [root]
-        list_new_nodes = []
-        current_index = 1
-        while current_index < len(sequence):
-            for i in range(2 * len(nodes_for_links)):
-                value_for_new_node = sequence[current_index]
-                if value_for_new_node:
-                    list_new_nodes.append(TreeNode(value_for_new_node))
-                else:
-                    list_new_nodes.append(None)
-                current_index += 1
-            count_for_link = 0
-            for node in nodes_for_links:
-                if node is not None:
-                    node.left = list_new_nodes[count_for_link]
-                    count_for_link += 1
-                    node.right = list_new_nodes[count_for_link]
-                    count_for_link += 1
-                else:
-                    count_for_link += 2
-            nodes_for_links = list_new_nodes
-            list_new_nodes = []
-        return root
+class Tree:
+    def __init__(self, data: list = None):
+        """Конструктор дерева"""
+        self.root = TreeNode()
 
-    @staticmethod
-    def list_values_tree(root: TreeNode):
-        current_level = [root]
+        if data is not None:
+            self.root.val = data[0]
+            nodes_for_link = [self.root]
+            list_new_nodes = []
+            current_index = 1
+            while current_index < len(data):
+                for i in range(2 * len(nodes_for_link)):
+                    value_for_new_node = data[current_index]
+                    if value_for_new_node is not None:
+                        list_new_nodes.append(TreeNode(value_for_new_node))
+                    else:
+                        list_new_nodes.append(None)
+                    current_index += 1
+                index_for_link = 0
+                for node in nodes_for_link:
+                    if node is not None:
+                        node.left = list_new_nodes[index_for_link]
+                        index_for_link += 1
+                        node.right = list_new_nodes[index_for_link]
+                        index_for_link += 1
+                    else:
+                        index_for_link += 2
+                nodes_for_link = list_new_nodes
+                list_new_nodes = []
+
+    def list_values_tree(self):
+        current_level = [self.root]
         next_level = []
         list_values = []
-        flag = True
-        while flag:
-            flag = False
+        while True:
             for node in current_level:
                 if node is not None:
                     list_values.append(node.val)
                     next_level.append(node.left)
                     next_level.append(node.right)
-                    flag = True
                 else:
                     list_values.append(None)
                     next_level.append(None)
                     next_level.append(None)
-            current_level = next_level
-            next_level = []
+            if not all(x is None for x in next_level):
+                current_level = next_level
+                next_level = []
+            else:
+                break
         return list_values
 
 
 if __name__ == '__main__':
-    s = TreeCreator.tree_creator([10, None, 15, None, None, 13, None])
-    print(TreeCreator.list_values_tree(s))
+    s = Tree([10, None, 15, None, None, 13, None])
+    print(Tree.list_values_tree(s))
 
