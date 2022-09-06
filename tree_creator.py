@@ -61,7 +61,17 @@ class Tree:
                 break
         return list_values
 
+    def reverse(self):
+        next_nodes = [self.root]
+        for node in next_nodes:
+            if node is not None:
+                next_nodes.append(node.left)
+                next_nodes.append(node.right)
+                node.left, node.right = node.right, node.left
+
 
 if __name__ == '__main__':
     s = Tree([10, None, 15, None, None, 13, None])
+    print(Tree.list_values_tree(s))
+    s.reverse()
     print(Tree.list_values_tree(s))
