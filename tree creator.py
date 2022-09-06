@@ -2,6 +2,7 @@
 
 
 class TreeNode:
+    """Конструктор ноды дерева"""
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -39,6 +40,7 @@ class Tree:
                 list_new_nodes = []
 
     def list_values_tree(self):
+        """Метод получения списка значений нод дерева"""
         current_level = [self.root]
         next_level = []
         list_values = []
@@ -63,4 +65,3 @@ class Tree:
 if __name__ == '__main__':
     s = Tree([10, None, 15, None, None, 13, None])
     print(Tree.list_values_tree(s))
-
