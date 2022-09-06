@@ -10,22 +10,23 @@ Example 2:
 Input: root = [2,1,3]
 Output: [2,3,1]
 """
-from typing import Optional
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from tree_creator import Tree
 
 
 class Solution:
-    ...
+    @staticmethod
+    def rev_tree(tree: Tree):
+        next_nodes = [tree.root]
+        for node in next_nodes:
+            if node is not None:
+                next_nodes.append(node.left)
+                next_nodes.append(node.right)
+                node.left, node.right = node.right, node.left
 
 
-
-
-
-
+if __name__ == '__main__':
+    s = Tree([2, 1, 3])
+    Solution.rev_tree(s)
+    print(s.list_values_tree())
 
