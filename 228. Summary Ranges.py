@@ -43,5 +43,32 @@ Constraints:
 
 
 class Solution:
+    def __init__(self):
+        self.start = None
+        self.stop = None
+        self.next_value = None
+
     def summary_ranges(self, nums: List[int]) -> List[str]:
-        ...
+        nums.append(1)
+        self.start = nums[0]
+        self.stop = nums[0]
+        self.next_value = nums[0]
+        output = []
+        for value in nums:
+            if self.next_value != value:
+                if self.start == self.stop:
+                    output.append(str(self.start))
+                else:
+                    output.append(str(self.start) + '->' + str(self.stop))
+                self.start = value
+                self.stop = value
+                self.next_value = value + 1
+            else:
+                self.next_value += 1
+                self.stop = value
+        return output
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.summary_ranges([0, 1, 2, 4, 5, 7]))
