@@ -49,7 +49,7 @@ class Solution:
         self.next_value = None
 
     def summary_ranges(self, nums: List[int]) -> List[str]:
-        nums.append(1)
+        nums.append(232)
         self.start = nums[0]
         self.stop = nums[0]
         self.next_value = nums[0]
@@ -71,4 +71,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.summary_ranges([0, 1, 2, 4, 5, 7]))
+    print(s.summary_ranges([-10, -9, 0, 1, 3, 6, 7]))
