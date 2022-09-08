@@ -3,7 +3,6 @@ def bubble_sort(seq: list) -> list:
         for index in range(len(seq) - position - 1):
             if seq[index] > seq[index + 1]:
                 seq[index], seq[index + 1] = seq[index + 1], seq[index]
-                print(seq)
     return seq
 
 
