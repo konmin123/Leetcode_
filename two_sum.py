@@ -39,12 +39,25 @@ up
 with an algorithm that is less than O(n2) time complexity?"""
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-target = 17
+target = 3
 
 
-def two_sum(seq: list) -> list:
+def two_sum_line(seq: list) -> list:
+    i = 0
+    j = len(seq) - 1
+    while i < j:
+        if seq[i] + seq[j] == target:
+            return [i, j]
+        elif seq[i] + seq[j] < target:
+            i += 1
+        elif seq[i] + seq[j] > target:
+            j -= 1
+    return []
+
+
+def two_sum_dict(seq: list) -> list:
     dict_ = {}
-    for index, value in enumerate(nums):
+    for index, value in enumerate(seq):
         if target >= value:
             find_number = target - value
         else:
@@ -57,5 +70,5 @@ def two_sum(seq: list) -> list:
 
 
 if __name__ == '__main__':
-    print(two_sum(nums))
+    print(two_sum_line(nums))
 
