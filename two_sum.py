@@ -38,15 +38,22 @@ come
 up
 with an algorithm that is less than O(n2) time complexity?"""
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-target = 5
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 17
 
 
-def two_sum(sequence: list) -> list:
-    for first_index in range(len(nums)):
-        for second_index in range(first_index + 1, len(nums)):
-            if nums[first_index] + nums[second_index] == target:
-                return [first_index, second_index]
+def two_sum(seq: list) -> list:
+    dict_ = {}
+    for index, value in enumerate(nums):
+        if target >= value:
+            find_number = target - value
+        else:
+            find_number = value + target
+        if str(find_number) in dict_.keys():
+            return [dict_[str(find_number)], index]
+        else:
+            dict_[str(value)] = index
+    return []
 
 
 if __name__ == '__main__':
