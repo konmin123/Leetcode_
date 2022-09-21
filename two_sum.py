@@ -38,8 +38,23 @@ come
 up
 with an algorithm that is less than O(n2) time complexity?"""
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-target = 3
+nums = [-5, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 17
+
+
+def two_sum_binary_find(seq: list) -> list:
+    for index, value in enumerate(seq):
+        left = index + 1
+        right = len(seq) - 1
+        while left <= right:
+            middle_index = (left + right) // 2
+            if value + seq[middle_index] < target:
+                left = middle_index + 1
+            elif value + seq[middle_index] > target:
+                right = middle_index - 1
+            else:
+                return [index, middle_index]
+    return []
 
 
 def two_sum_line(seq: list) -> list:
@@ -70,5 +85,5 @@ def two_sum_dict(seq: list) -> list:
 
 
 if __name__ == '__main__':
-    print(two_sum_line(nums))
+    print(two_sum_binary_find(nums))
 
