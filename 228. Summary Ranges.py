@@ -71,4 +71,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.summary_ranges([-10, -9, 0, 1, 3, 6, 7]))
+    print(s.summary_ranges([-9, 0, 1, 3, 6, 7]))

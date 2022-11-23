@@ -49,4 +49,4 @@ def my_idea(n: int, m: int) -> int:  # решение через последо�
 
 
 if __name__ == '__main__':
-    print(my_idea(5, 5))
+    print(my_idea(6, 6))
