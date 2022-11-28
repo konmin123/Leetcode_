@@ -33,22 +33,28 @@ class ListNode:
 class Solution:
     @staticmethod
     def is_palindrome(head: Optional[ListNode]) -> bool:
-        current_node = head
-        my_stack = list()
-        count_in_stack = 0
-        while current_node:
-            if count_in_stack == 0:
-                my_stack.append(current_node.val)
-                count_in_stack += 1
+        slow_cursor = head
+        fast_cursor = head
+        while fast_cursor and fast_cursor.next_:
+            slow_cursor = slow_cursor.next_
+            fast_cursor = fast_cursor.next_.next_
+        prev_node = slow_cursor
+        slow_cursor = slow_cursor.next_
+        prev_node.next_ = None
+        while slow_cursor:
+            next_node = slow_cursor.next_
+            slow_cursor.next_ = prev_node
+            prev_node = slow_cursor
+            slow_cursor = next_node
+        fast_cursor = head
+        slow_cursor = prev_node
+        while slow_cursor:
+            if fast_cursor.val == slow_cursor.val:
+                fast_cursor = fast_cursor.next_
+                slow_cursor = slow_cursor.next_
             else:
-                if my_stack[-1] == current_node.val:
-                    my_stack.pop()
-                    count_in_stack -= 1
-                else:
-                    my_stack.append(current_node.val)
-                    count_in_stack += 1
-            current_node = current_node.next_
-        return bool(not my_stack)
+                return False
+        return True
 
 
 if __name__ == '__main__':
@@ -60,7 +66,5 @@ if __name__ == '__main__':
     first = ListNode(1, second)
 
     print(Solution.is_palindrome(first))
-    print(Solution. is_palindrome(third))
-    print(Solution.is_palindrome(ListNode()))
 
 
