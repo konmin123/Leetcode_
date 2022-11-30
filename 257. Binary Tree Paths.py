@@ -23,6 +23,8 @@ class TreeNode:
 class Solution:
     @staticmethod
     def binary_tree_paths(root: Optional[TreeNode]) -> List[str]:
+        if not root:
+            return []
         current_stack = [('', root)]
         next_stack = []
         output_list = []
@@ -48,5 +50,5 @@ if __name__ == '__main__':
     tree_node3 = TreeNode(val=5)
     tree_node2 = TreeNode(val=2, left=None, right=tree_node3)
     tree_root = TreeNode(val=1, left=tree_node2, right=tree_node4)
-    print(Solution.binary_tree_paths(tree_root))
+    print(Solution.binary_tree_paths(None))
 
