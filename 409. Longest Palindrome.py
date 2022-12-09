@@ -35,11 +35,11 @@ class Solution:
                 simple_letter_flag = True
             if item[1] >= 2:
                 answer_number += item[1] - item[1] % 2
-        return answer_number + int(simple_letter_flag)
+        return answer_number + simple_letter_flag
 
 
 if __name__ == '__main__':
-    print(Solution.longest_palindrome('aabbb'))
+    print(Solution.longest_palindrome('aabbbc'))
 
 
 
