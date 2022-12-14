@@ -36,4 +36,4 @@ class Solution:
         return True
 
 
-print(Solution.is_subsequence('abc', 'qabwca'))
+print(Solution.is_subsequence('axc', 'ahbgdc'))
