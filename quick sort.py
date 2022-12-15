@@ -1,5 +1,5 @@
 def quicksort(alist, left, right):
-    '''Sorts the list from indexes start to end - 1 inclusive.'''
+    """Sorts the list from indexes start to end - 1 inclusive."""
     if right - left > 1:
         p = partition(alist, left, right)
         quicksort(alist, left, p)
