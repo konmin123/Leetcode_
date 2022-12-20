@@ -33,5 +33,12 @@ class Solution:
             output.pop()
         return output
 
+    @staticmethod
+    def find_disappeared_numbers2(nums: List[int]) -> List[int]:
+        output = [x for x in range(1, max(nums)) if x not in nums]
+        if not output:
+            output.append(max(nums) + 1)
+        return output
 
-print(Solution.find_disappeared_numbers([1, 8]))
+
+print(Solution.find_disappeared_numbers2([4]))
