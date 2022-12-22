@@ -59,17 +59,28 @@ class Solution:
                 new_node = ListNode((cur_node_2.val + over_value) % 10)
             prev_new_node.next = new_node
             prev_new_node = new_node
+        if over_value:
+            new_node = ListNode(1)
+            prev_new_node.next = new_node
         return head
 
 
 if __name__ == '__main__':
-    first_node = ListNode(3)
-    second_node = ListNode(4, first_node)
-    third_node = ListNode(2, second_node)
-    fourth_node = ListNode(4)
-    fifth_node = ListNode(6, fourth_node)
-    sixth_node = ListNode(5, fifth_node)
-    l1 = third_node
-    l2 = sixth_node
+    a = ListNode(9)
+    p = ListNode(9, a)
+    o = ListNode(9, p)
+    i = ListNode(9, o)
+    u = ListNode(9)
+    y = ListNode(9, u)
+    t = ListNode(9, y)
+    r = ListNode(9, t)
+    e = ListNode(9, r)
+    w = ListNode(9, e)
+    q = ListNode(9, w)
+    l1 = q
+    l2 = i
     x = Solution.add_two_numbers(l1, l2)
-    print(x.val, x.next.val, x.next.next.val)
+    while x:
+        print(x.val)
+        x = x.next
+
