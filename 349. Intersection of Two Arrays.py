@@ -31,4 +31,9 @@ class Solution:
         return list(set(filter(lambda x: x in nums1, nums2)))
 
 
-print(Solution.intersection_2([4, 9, 5], [9, 4, 9, 8, 4]))
+assert Solution.intersection([1, 2, 2, 1], [2, 2]) == [2]
+assert Solution.intersection([4, 9, 5], [9, 4, 9, 8, 4]) == [9, 4]
+assert Solution.intersection_2([1, 2, 2, 1], [2, 2]) == [2]
+assert Solution.intersection_2([4, 9, 5], [9, 4, 9, 8, 4]) == [9, 4]
+assert Solution.intersection([], [2, 2]) == []
+assert Solution.intersection_2([], [2, 2]) == []
