@@ -28,6 +28,7 @@ Output: [427,286]
 
 Constraints:
 1 <= area <= 107"""
+import math
 from typing import List
 
 
@@ -40,7 +41,16 @@ class Solution:
                 output_list.append([area // width, width])
         return min(output_list, key=lambda x: abs(x[0] - x[1]))
 
+    @staticmethod
+    def construct_rectangle_sqrt(area):
+        for val in range(int(math.sqrt(area)), 0, -1):
+            if area % val == 0:
+                return [area/val, val]
+
 
 assert Solution.construct_rectangle(4) == [2, 2]
 assert Solution.construct_rectangle(37) == [37, 1]
 assert Solution.construct_rectangle(122122) == [427, 286]
+assert Solution.construct_rectangle_sqrt(4) == [2, 2]
+assert Solution.construct_rectangle_sqrt(37) == [37, 1]
+assert Solution.construct_rectangle_sqrt(122122) == [427, 286]
