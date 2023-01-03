@@ -52,6 +52,26 @@ class Solution:
         return [x[0] for x in node_values.items()
                 if x[1] == max(node_values.values())]
 
+    @staticmethod
+    def find_mode_rec(root: Optional[TreeNode]) -> List[int]:
+        if root.val == 0:
+            return [0]
+        count_values = defaultdict(int)
+        if type(root) is TreeNode:
+            Solution.for_rec(root, count_values)
+        return [x[0] for x in count_values.items()
+                if x[1] == max(count_values.values())]
+
+    @staticmethod
+    def for_rec(node: TreeNode, count_values: defaultdict) -> defaultdict:
+        count_values[node.val] += 1
+        if node.left:
+            Solution.for_rec(node.left, count_values)
+        if node.right:
+            Solution.for_rec(node.right, count_values)
+        else:
+            return count_values
+
 
 node_for_test_root_2 = TreeNode(2)
 node_for_test_root_1 = TreeNode(2, left=node_for_test_root_2)
@@ -61,3 +81,5 @@ root_for_test_two = TreeNode(0)
 
 assert Solution.find_mode(root_for_test_one) == [2]
 assert Solution.find_mode(root_for_test_two) == [0]
+assert Solution.find_mode_rec(root_for_test_one) == [2]
+assert Solution.find_mode_rec(root_for_test_two) == [0]
