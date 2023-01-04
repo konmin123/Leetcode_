@@ -14,11 +14,11 @@ def decorator(func):
             element = arguments_values[index]
             type_ = arguments_types[index]
             if type(element) is not type_:
-                raise ValueError
+                raise TypeError
         for item in kwargs.items():
             type_kwarg = func.__annotations__[item[0]]
             if type(item[1]) is not type_kwarg:
-                raise ValueError
+                raise TypeError
         return func(*args, **kwargs)
     return wrapper
 
