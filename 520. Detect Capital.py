@@ -22,10 +22,10 @@ word consists of lowercase and uppercase English letters."""
 class Solution:
     @staticmethod
     def detect_capital_use(word: str) -> bool:
-        set_variants = {word.capitalize(), word.lower(), word.upper()}
+        set_variants = [word.capitalize(), word.lower(), word.upper()]
         if word in set_variants:
             return True
         return False
 
 
-print(Solution.detect_capital_use('WWWER'))
+print(Solution.detect_capital_use('WWWeR'))
