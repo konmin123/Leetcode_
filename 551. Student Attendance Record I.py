@@ -33,10 +33,10 @@ s[i] is either 'A', 'L', or 'P'."""
 class Solution:
     @staticmethod
     def check_record(s: str) -> bool:
-        if s.count("A") > 1 or 'LLL' in s:
+        if s.count('A') > 1 or 'LLL' in s:
             return False
         return True
 
 
-assert Solution.check_record("PPALLP") is True
-assert Solution.check_record("PPALLL") is False
+assert Solution.check_record('PPALLP') is True
+assert Solution.check_record('PPALLL') is False
