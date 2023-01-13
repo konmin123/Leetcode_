@@ -16,12 +16,3 @@ def func(*args, **kwargs):
 
 print(f'Результат {func(1, 2, с=5, d=10)}')
 
-
-# def is_prime(number: int) -> bool:
-#     for divisor in range(2, (number//2)+1):
-#         if number % divisor == 0:
-#             return False
-#     return True
-#
-#
-# print(is_prime(1))
