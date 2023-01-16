@@ -36,8 +36,8 @@ a and b consist of lower-case English letters."""
 class Solution:
     @staticmethod
     def find_lus_length(a: str, b: str) -> int:
-        len_a = len(a)
-        len_b = len(b)
+        len_a: int = len(a)
+        len_b: int = len(b)
         for letter in a:
             if letter in b:
                 len_a -= 1
