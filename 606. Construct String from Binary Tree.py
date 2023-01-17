@@ -40,6 +40,8 @@ node_2_3 = TreeNode(3)
 node_2_2 = TreeNode(2, None, node_2_4)
 root_2 = TreeNode(1, node_2_2, node_2_3)
 
+root_3 = TreeNode(1)
+
 
 class Solution:
     @staticmethod
@@ -60,3 +62,4 @@ class Solution:
 
 assert Solution.tree2str(root_1) == "1(2(4))(3)"
 assert Solution.tree2str(root_2) == "1(2()(4))(3)"
+assert Solution.tree2str(root_3) == "1"
