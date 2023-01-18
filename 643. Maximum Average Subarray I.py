@@ -24,13 +24,10 @@ from typing import List
 class Solution:
     @staticmethod
     def find_max_average(nums: List[int], k: int) -> float:
-        if k == len(nums):
-            return sum(nums) / k
-        else:
-            dict_average_sum = defaultdict(float)
-            for variant in range(len(nums) - k + 1):
-                average = sum(nums[variant:variant + k]) / k
-                dict_average_sum[variant] = average
+        dict_average_sum = defaultdict(float)
+        for variant in range(len(nums) - k + 1):
+            average = sum(nums[variant:variant + k]) / k
+            dict_average_sum[variant] = average
         return max(dict_average_sum.values())
 
 
