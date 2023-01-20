@@ -34,4 +34,3 @@ class Solution:
 assert Solution.find_max_average([1, 12, -5, -6, 50, 3], 4) == 12.75000
 assert Solution.find_max_average([5], 1) == 5.00000
 assert Solution.find_max_average([1, 15, 2, 14, 3, 13], 2) == 8.50000
-
