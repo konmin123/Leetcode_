@@ -26,9 +26,9 @@ class TreeNode:
 class Solution:
     @staticmethod
     def get_minimum_difference(root: Optional[TreeNode]) -> int:
-        queue = deque()
+        queue: deque = deque()
         queue.append(root)
-        dif_val = 106
+        dif_val: int = 106
         while queue:
             cur_node = queue.pop()
             if isinstance(cur_node, TreeNode):
