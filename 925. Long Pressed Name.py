@@ -23,8 +23,8 @@ name and typed consist of only lowercase English letters."""
 class Solution:
     @staticmethod
     def is_long_pressed_name(name: str, typed: str) -> bool:
-        cur_name = 0
-        cur_typed = 0
+        cur_name: int = 0
+        cur_typed: int = 0
         for _ in range(len(typed)):
             if len(name) == cur_name:
                 return True
