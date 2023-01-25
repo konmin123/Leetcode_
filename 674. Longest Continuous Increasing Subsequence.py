@@ -26,7 +26,7 @@ from typing import List
 class Solution:
     @staticmethod
     def find_length_of_lcis(nums: List[int]) -> int:
-        cursor = 0
+        cursor: int = 0
         for value in nums[1::]:
             if nums[cursor] < value:
                 cursor += 1
