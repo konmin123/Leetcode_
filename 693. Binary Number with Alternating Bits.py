@@ -34,7 +34,6 @@ class Solution:
                 binary_str = binary_str[:-1]
             else:
                 return False
-        print(binary_str)
         return binary_str.count('10') == (len(binary_str) // 2)
 
 
