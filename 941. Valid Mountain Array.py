@@ -27,11 +27,13 @@ from typing import List
 class Solution:
     @staticmethod
     def valid_mountain_array(arr: List[int]) -> bool:
+        if len(arr) < 3:
+            return False
         left_cur = 1
-        right_cur = len(arr) - 1
+        right_cur = len(arr) - 2
         prev_left = arr[0]
         prev_right = arr[-1]
-        while left_cur < right_cur:
+        while left_cur <= right_cur:
             if arr[left_cur] >= prev_left and arr[right_cur] >= prev_right:
                 prev_left = arr[left_cur]
                 prev_right = arr[right_cur]
@@ -43,3 +45,4 @@ class Solution:
 
 
 assert Solution.valid_mountain_array([0, 3, 2, 1])
+assert not Solution.valid_mountain_array([0, 3, 2, 5])
