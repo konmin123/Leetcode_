@@ -30,7 +30,20 @@ class Solution:
                 return False
         return True
 
+    @staticmethod
+    def is_palindrome(x: int) -> bool:
+        if x < 0:
+            return False
+        list_values = []
+        while x >= 10:
+            remains = x % 10
+            x -= remains
+            x /= 10
+            list_values.append(int(remains))
+        list_values.append(int(x))
+        return list_values == list_values[::-1]
 
-assert Solution.is_palindrome_str(121)
-assert not Solution.is_palindrome_str(-121)
-assert not Solution.is_palindrome_str(10)
+
+assert Solution.is_palindrome(121)
+assert not Solution.is_palindrome(-121)
+assert not Solution.is_palindrome(10)
