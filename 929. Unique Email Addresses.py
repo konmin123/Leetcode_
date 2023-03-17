@@ -54,7 +54,6 @@ class Solution:
             address = prefix + suffix
             if address not in address_list:
                 address_list.append(address)
-        print(address_list)
         return len(address_list)
 
 
