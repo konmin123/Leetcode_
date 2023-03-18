@@ -52,7 +52,7 @@ class Solution:
             col = []
             for string in strs:
                 col.append(string[column])
-            if col != sorted(col, reverse=False):
+            if col != sorted(col):
                 output += 1
         return output
 
