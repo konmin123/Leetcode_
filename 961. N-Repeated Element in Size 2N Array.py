@@ -29,6 +29,12 @@ from typing import List
 
 class Solution:
     @staticmethod
+    def repeated_n_times_inplace(nums: List[int]) -> int:
+        for index, value in enumerate(nums):
+            if value in nums[index + 1:]:
+                return value
+
+    @staticmethod
     def repeated_n_times(nums: List[int]) -> int:
         nums_dict = {}
         for num in nums:
@@ -38,6 +44,6 @@ class Solution:
                 nums_dict[num] = 1
 
 
-assert Solution.repeated_n_times([1, 2, 3, 3]) == 3
-assert Solution.repeated_n_times([2, 1, 2, 5, 3, 2]) == 2
-assert Solution.repeated_n_times([5, 1, 5, 2, 5, 3, 5, 4]) == 5
+assert Solution.repeated_n_times_inplace([1, 2, 3, 3]) == 3
+assert Solution.repeated_n_times_inplace([2, 1, 2, 5, 3, 2]) == 2
+assert Solution.repeated_n_times_inplace([5, 1, 5, 2, 5, 3, 5, 4]) == 5
