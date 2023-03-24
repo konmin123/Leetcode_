@@ -1,4 +1,5 @@
-"""Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+"""Given two sorted arrays nums1 and nums2 of size m and n respectively, return
+the median of the two sorted arrays.
 
 The overall run time complexity should be O(log (m+n)).
 
@@ -29,13 +30,15 @@ from typing import List
 class Solution:
     @staticmethod
     def find_median_sorted_arrays(nums1: List[int], nums2: List[int]) -> float:
-        merge_array = nums1 + nums2
+        merge_array: List = nums1 + nums2
         merge_array.sort()
+        len_array = len(merge_array)
         if len(merge_array) % 2 == 0:
-            return (merge_array[len(merge_array)//2 - 1] + merge_array[len(merge_array)//2]) / 2
+            return ((merge_array[len_array//2 - 1] +
+                    merge_array[len_array//2]) / 2)
         else:
-            return merge_array[len(merge_array)//2]
+            return merge_array[len_array//2]
 
 
-if __name__ == '__main__':
-    print(Solution.find_median_sorted_arrays([1, 2], [3, 4]))
+assert Solution.find_median_sorted_arrays([1, 3], [2]) == 2
+assert Solution.find_median_sorted_arrays([1, 2], [3, 4]) == 2.5
