@@ -31,7 +31,34 @@ class TreeNode:
 class Solution:
     @staticmethod
     def sum_root_to_leaf(root: Optional[TreeNode]) -> int:
-        ...
+        result = 0
+        stack = [(root, "")]
+
+        while (stack):
+            node, path = stack.pop()
+            if node:
+                path += str(node.val)
+
+                if not (node.left or node.right):
+                    result += int(path, 2)
+                else:
+                    stack.append((node.left, path))
+                    stack.append((node.right, path))
+        return result
+
+
+node_1_7 = TreeNode(1)
+node_1_6 = TreeNode(0)
+node_1_5 = TreeNode(1)
+node_1_4 = TreeNode(0)
+node_1_3 = TreeNode(1, node_1_6, node_1_7)
+node_1_2 = TreeNode(0, node_1_4, node_1_5)
+node_1 = TreeNode(1, node_1_2, node_1_3)
+node_2 = TreeNode(0)
+
+
+assert Solution.sum_root_to_leaf(node_1) == 22
+assert Solution.sum_root_to_leaf(node_2) == 0
 
 
 
