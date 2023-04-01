@@ -30,7 +30,7 @@ class Solution:
     @staticmethod
     def trim_mean(arr: List[int]) -> float:
         arr.sort()
-        count_remove = int(len(arr) * 0.05)
+        count_remove: int = int(len(arr) * 0.05)
         return sum(
             arr[count_remove:-count_remove]) / (len(arr) - (2 * count_remove))
 
