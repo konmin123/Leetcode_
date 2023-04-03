@@ -27,9 +27,6 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999]."""
 
-s1 = "III"
-s2 = "LVIII"
-s3 = "MCMXCIV"
 
 IV = 4
 IX = 9
@@ -52,7 +49,10 @@ class ArabianRomanConvertor:
         while i < len(x):
             if i < len(x) - 1:
                 try:
-                    value_complex_key = ArabianRomanConvertor.__get_arabian_by_char(x[i] + x[i + 1])
+                    value_complex_key = (
+                        ArabianRomanConvertor.__get_arabian_by_char(
+                            x[i] + x[i + 1])
+                    )
                     value += value_complex_key
                     i += 2
                 except ValueError:
@@ -71,5 +71,6 @@ class ArabianRomanConvertor:
             return ArabianRomanConvertor.__roman_arabian.get(char)
 
 
-print(ArabianRomanConvertor.roman_to_arabian(s3))
-print(dir(ArabianRomanConvertor))
+assert ArabianRomanConvertor.roman_to_arabian("III") == 3
+assert ArabianRomanConvertor.roman_to_arabian("LVIII") == 58
+assert ArabianRomanConvertor.roman_to_arabian("MCMXCIV") == 1994
