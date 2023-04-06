@@ -1,20 +1,17 @@
-"""Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+"""Given the root of a binary tree, check whether it is a mirror of itself
+(i.e., symmetric around its center).
 
 Example 1:
-
 Input: root = [1,2,2,3,4,4,3]
 Output: true
 
 Example 2:
-
 Input: root = [1,2,2,null,3,null,3]
 Output: false
 
 Constraints:
-
-    The number of nodes in the tree is in the range [1, 1000].
-    -100 <= Node.val <= 100
-
+The number of nodes in the tree is in the range [1, 1000].
+-100 <= Node.val <= 100
 Follow up: Could you solve it both recursively and iteratively?"""
 from typing import Optional
 
@@ -24,16 +21,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
-
-node4_r = TreeNode(4)
-node4_l = TreeNode(4)
-node3_r = TreeNode(3)
-node3_l = TreeNode(3)
-node2_l = TreeNode(2, node3_l, node4_l)
-node2_r = TreeNode(2, node4_r, node3_r)
-node1 = TreeNode(1, node2_l, node2_r)
-root_ = node1
 
 
 class Solution:
@@ -60,8 +47,14 @@ class Solution:
         return False
 
 
-if __name__ == '__main__':
-    print(Solution.is_symmetric(root_))
+node4_r = TreeNode(4)
+node4_l = TreeNode(4)
+node3_r = TreeNode(3)
+node3_l = TreeNode(3)
+node2_l = TreeNode(2, node3_l, node4_l)
+node2_r = TreeNode(2, node4_r, node3_r)
+node1 = TreeNode(1, node2_l, node2_r)
+root_1 = node1
 
 
-
+assert Solution.is_symmetric(root_1)
