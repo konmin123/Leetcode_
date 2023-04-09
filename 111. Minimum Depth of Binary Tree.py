@@ -26,10 +26,10 @@ class TreeNode:
 class Solution:
     @staticmethod
     def min_depth(root: Optional[TreeNode]) -> int:
-        depth = 0
+        depth: int = 0
         if isinstance(root, TreeNode):
-            node_queue = [root]
-            next_level = []
+            node_queue: list[TreeNode] = [root]
+            next_level: list[TreeNode] = []
             while node_queue:
                 depth += 1
                 for node in node_queue:
