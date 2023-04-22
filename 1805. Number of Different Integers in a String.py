@@ -28,6 +28,7 @@ values.
 Constraints:
 1 <= word.length <= 1000
 word consists of digits and lowercase English letters."""
+import re
 
 
 class Solution:
@@ -45,7 +46,15 @@ class Solution:
             output_list.append(int(number_str))
         return len(set(output_list))
 
+    @staticmethod
+    def num_different_integers_map(word):
+        return len(set(map(int, re.findall(r'\d+', word))))
+
 
 assert Solution.num_different_integers("a123bc34d8ef34") == 3
 assert Solution.num_different_integers("leet1234code234") == 2
 assert Solution.num_different_integers("a1b01c001") == 1
+
+assert Solution.num_different_integers_map("a123bc34d8ef34") == 3
+assert Solution.num_different_integers_map("leet1234code234") == 2
+assert Solution.num_different_integers_map("a1b01c001") == 1
