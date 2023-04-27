@@ -37,13 +37,13 @@ class Solution:
         fast_cursor = head
         while fast_cursor and fast_cursor.next_:
             slow_cursor = slow_cursor.next_
-            fast_cursor = fast_cursor.next_.next_
+            fast_cursor = fast_cursor.next_.next_zero_index
         prev_node = slow_cursor
         slow_cursor = slow_cursor.next_
         prev_node.next_ = None
         while slow_cursor:
-            next_node = slow_cursor.next_
-            slow_cursor.next_ = prev_node
+            next_node = slow_cursor.next_zero_index
+            slow_cursor.next_zero_index = prev_node
             prev_node = slow_cursor
             slow_cursor = next_node
         fast_cursor = head

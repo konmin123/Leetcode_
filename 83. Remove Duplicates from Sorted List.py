@@ -41,11 +41,11 @@ class Solution:
             cur_node = head.next_
             while cur_node:
                 if prev_node.val == cur_node.val:
-                    cur_node = cur_node.next_
+                    cur_node = cur_node.next_zero_index
                     prev_node.next_ = cur_node
                 else:
                     prev_node = cur_node
-                    cur_node = cur_node.next_
+                    cur_node = cur_node.next_zero_index
         return head
 
     @staticmethod
