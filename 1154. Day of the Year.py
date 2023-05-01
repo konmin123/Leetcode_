@@ -14,6 +14,7 @@ Constraints:
 date.length == 10
 date[4] == date[7] == '-', and all other date[i]'s are digits
 date represents a calendar date between Jan 1st, 1900 and Dec 31th, 2019."""
+import datetime
 
 
 class Solution:
@@ -30,8 +31,18 @@ class Solution:
         days_per_year = days_for_previous_months + days_per_month
         return days_per_year + 1 if leap_year else days_per_year
 
+    @staticmethod
+    def day_of_year_datetime(date: str) -> int:
+        start = datetime.date(int(date[:4]), 1, 1)
+        stop = datetime.date(int(date[:4]), int(date[5:7]), int(date[8:]))
+        return (stop - start).days + 1
+
 
 assert Solution.day_of_year("2019-02-10") == 41
 assert Solution.day_of_year("2019-01-09") == 9
 assert Solution.day_of_year("2019-03-01") == 60
 assert Solution.day_of_year("2020-03-01") == 61
+assert Solution.day_of_year_datetime("2019-02-10") == 41
+assert Solution.day_of_year_datetime("2019-01-09") == 9
+assert Solution.day_of_year_datetime("2019-03-01") == 60
+assert Solution.day_of_year_datetime("2020-03-01") == 61
