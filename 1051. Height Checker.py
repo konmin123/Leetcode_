@@ -48,12 +48,18 @@ class Solution:
                 output += 1
         return output
 
+    def height_checker_zip(self) -> int:
+        return sum(a != b for a, b in zip(self.seq, sorted(self.seq)))
+
 
 test_1 = Solution([1, 1, 4, 2, 1, 3])
 assert test_1.height_checker() == 3
+assert test_1.height_checker_zip() == 3
 
 test_2 = Solution([5, 1, 2, 3, 4])
 assert test_2.height_checker() == 5
+assert test_2.height_checker_zip() == 5
 
 test_3 = Solution([1, 2, 3, 4, 5])
 assert test_3.height_checker() == 0
+assert test_3.height_checker_zip() == 0
