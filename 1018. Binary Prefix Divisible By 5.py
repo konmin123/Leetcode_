@@ -26,10 +26,7 @@ class Solution:
         str_for_check = ''
         for index, element in enumerate(nums):
             str_for_check += str(element)
-            if int(str_for_check, 2) % 5 == 0:
-                nums[index] = True
-            else:
-                nums[index] = False
+            nums[index] = True if int(str_for_check, 2) % 5 == 0 else False
         return nums
 
 
