@@ -28,6 +28,7 @@ class Solution:
         return n % 2 == 0
 
 
+assert not Solution.divisor_game(1)
 assert Solution.divisor_game(2)
 assert not Solution.divisor_game(3)
 assert Solution.divisor_game(4)
