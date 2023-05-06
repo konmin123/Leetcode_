@@ -35,7 +35,14 @@ class Solution:
                 arr[index] = queue_elements.popleft()
             if value == 0:
                 queue_elements.append(value)
-        print(arr)
 
 
-Solution.duplicate_zeros([0, 0, 0, 1, 2, 3])
+test_list_1 = [1, 0, 2, 3, 0, 4, 5, 0]
+result_list_1 = [1, 0, 0, 2, 3, 0, 0, 4]
+Solution.duplicate_zeros(test_list_1)
+assert test_list_1 == result_list_1
+
+test_list_2 = [1, 2, 3]
+result_list_2 = [1, 2, 3]
+Solution.duplicate_zeros(test_list_2)
+assert test_list_2 == result_list_2
