@@ -41,15 +41,14 @@ class Solution:
         output = [0] * num_people
         sequence_indexes = iter(cycle(range(num_people)))
         put_candies = 1
-        while candies > 0:
-            index = next(sequence_indexes)
+        for index in sequence_indexes:
             if candies - put_candies > 0:
                 output[index] += put_candies
                 candies -= put_candies
-                put_candies += 1
             else:
                 output[index] += candies
                 break
+            put_candies += 1
         return output
 
 
