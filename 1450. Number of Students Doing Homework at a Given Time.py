@@ -39,6 +39,12 @@ class Solution:
             cur_index += 1
         return output
 
+    @staticmethod
+    def busy_student_line(start: List[int], end: List[int], query: int) -> int:
+        return len([x for x in zip(start, end) if x[0] <= query <= x[1]])
+
 
 assert Solution.busy_student([1, 2, 3], [3, 2, 7], 4) == 1
 assert Solution.busy_student([4], [4], 4) == 1
+assert Solution.busy_student_line([1, 2, 3], [3, 2, 7], 4) == 1
+assert Solution.busy_student_line([4], [4], 4) == 1
