@@ -41,7 +41,9 @@ class Solution:
 
 assert Solution.string_matching(
     ['mass', 'as', 'hero', 'superhero']) == ['as', 'hero']
+
 assert Solution.string_matching(
     ['leetcode', 'et', 'code']) == ['et', 'code']
+
 assert Solution.string_matching(
     ['blue', 'green', 'bu']) == []
