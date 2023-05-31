@@ -21,14 +21,12 @@ from typing import List
 class Solution:
     @staticmethod
     def k_length_apart(nums: List[int], k: int) -> bool:
-        flag: bool = True
-        count: int = 0
+        count: int = k
         for value in nums:
-            if value == 1:
-                if count < k and not flag:
+            if value:
+                if count < k:
                     return False
                 count = 0
-                flag = False
             else:
                 count += 1
         return True
