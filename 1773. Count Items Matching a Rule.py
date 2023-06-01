@@ -33,9 +33,9 @@ from typing import List
 class Solution:
     @staticmethod
     def count_matches(items: List[List[str]], rule_key: str, rule_value: str):
-        dict_rule = {"type": 0, "color": 1, "name": 2}
-        count = 0
-        index = dict_rule[rule_key]
+        rule_index: dict = {"type": 0, "color": 1, "name": 2}
+        count: int = 0
+        index: int = rule_index[rule_key]
         for item in items:
             if item[index] == rule_value:
                 count += 1
