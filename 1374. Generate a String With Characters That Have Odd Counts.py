@@ -32,5 +32,12 @@ class Solution:
         else:
             return 'a' * (n - 1) + 'b'
 
+    @staticmethod
+    def generate_the_string_liner(n: int) -> str:
+        return 'a' * (n - 1) + 'b' if n % 2 == 0 else 'a' * n
 
-print(Solution.generate_the_string(4))
+
+assert Solution.generate_the_string(4) == 'aaab'
+assert Solution.generate_the_string(3) == 'aaa'
+assert Solution.generate_the_string_liner(4) == 'aaab'
+assert Solution.generate_the_string_liner(3) == 'aaa'
