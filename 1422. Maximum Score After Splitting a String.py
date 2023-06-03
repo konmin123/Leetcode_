@@ -40,7 +40,27 @@ class Solution:
                 max_sum = left + right
         return max_sum
 
+    @staticmethod
+    def max_score(str_: str) -> int:
+        max_sum = 0
+        zeros = 0
+        ones = str_.count("1")
+        for i in range(len(str_)):
+            if str_[i] == "0":
+                zeros += 1
+            else:
+                ones -= 1
+            if i == len(str_) - 1:
+                continue
+            if zeros + ones > max_sum:
+                max_sum = zeros + ones
+        return max_sum
+
 
 assert Solution.max_score_brutal("011101") == 5
 assert Solution.max_score_brutal("00111") == 5
 assert Solution.max_score_brutal("1111") == 3
+
+assert Solution.max_score("011101") == 5
+assert Solution.max_score("00111") == 5
+assert Solution.max_score("1111") == 3
