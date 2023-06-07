@@ -37,3 +37,4 @@ class Solution:
 
 assert Solution.num_water_bottles(9, 3) == 13
 assert Solution.num_water_bottles(15, 4) == 19
+assert Solution.num_water_bottles(1, 2) == 1
