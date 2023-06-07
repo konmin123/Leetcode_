@@ -25,11 +25,11 @@ class Solution:
     @staticmethod
     def num_water_bottles(num_bottles: int, num_exchange: int) -> int:
         output = 0
-        dif = 0
-        while num_bottles + dif >= num_exchange:
+        remainder = 0
+        while num_bottles + remainder >= num_exchange:
             output += num_bottles
-            empty_bottles = num_bottles + dif
-            dif = empty_bottles % num_exchange
+            empty_bottles = num_bottles + remainder
+            remainder = empty_bottles % num_exchange
             num_bottles = empty_bottles // num_exchange
         output += num_bottles
         return output
