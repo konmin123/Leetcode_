@@ -40,7 +40,7 @@ class Solution:
                     output = cur_sum
                 cur_sum = value
             prev = value
-        return output if output > cur_sum else cur_sum
+        return max(output, cur_sum)
 
 
 assert Solution.max_ascending_sum([10, 20, 30, 5, 10, 50]) == 65
