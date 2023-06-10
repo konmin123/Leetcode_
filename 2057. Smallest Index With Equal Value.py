@@ -34,11 +34,21 @@ from typing import List
 
 class Solution:
     @staticmethod
+    def smallest_equal_brutal(nums: List[int]) -> int:
+        for index, value in enumerate(nums):
+            if index % 10 == value:
+                return index
+        return -1
+
+    @staticmethod
     def smallest_equal(nums: List[int]) -> int:
         equals = [i for i, x in enumerate(nums) if i % 10 == x]
         return min(equals) if equals else -1
 
 
+assert Solution.smallest_equal_brutal([4, 3, 2, 1]) == 2
+assert Solution.smallest_equal_brutal([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == -1
+assert Solution.smallest_equal_brutal([0, 1]) == 0
 assert Solution.smallest_equal([4, 3, 2, 1]) == 2
 assert Solution.smallest_equal([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == -1
 assert Solution.smallest_equal([0, 1]) == 0
