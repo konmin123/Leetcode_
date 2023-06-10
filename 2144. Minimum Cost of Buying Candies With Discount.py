@@ -54,7 +54,14 @@ class Solution:
                 number = 1
         return output
 
+    @staticmethod
+    def minimum_cost_liner(cost: List[int]) -> int:
+        return sum(cost) - sum(sorted(cost, reverse=True)[2::3])
+
 
 assert Solution.minimum_cost([6, 5, 7, 9, 2, 2]) == 23
 assert Solution.minimum_cost([1, 2, 3]) == 5
 assert Solution.minimum_cost([5, 5]) == 10
+assert Solution.minimum_cost_liner([6, 5, 7, 9, 2, 2]) == 23
+assert Solution.minimum_cost_liner([1, 2, 3]) == 5
+assert Solution.minimum_cost_liner([5, 5]) == 10
