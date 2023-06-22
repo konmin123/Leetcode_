@@ -30,7 +30,7 @@ from typing import List
 
 class Solution:
     @staticmethod
-    def smaller_numbers_than_current(nums: List[int]) -> List[int]:
+    def smaller_numbers_than_current_brutal(nums: List[int]) -> List[int]:
         output = []
         for index, value in enumerate(nums):
             count = 0
@@ -38,6 +38,18 @@ class Solution:
                 if index != i and value > val:
                     count += 1
             output.append(count)
+        return output
+
+    @staticmethod
+    def smaller_numbers_than_current(nums: List[int]) -> List[int]:
+        count = [0] * 102
+        output = []
+        for num in nums:
+            count[num + 1] = count[num + 1] + 1
+        for i in range(1, 102):
+            count[i] = count[i] + count[i - 1]
+        for num in nums:
+            output.append(count[num])
         return output
 
 
