@@ -38,3 +38,4 @@ class Solution:
 assert Solution.remove_palindrome_sub("ababa") == 1
 assert Solution.remove_palindrome_sub("abb") == 2
 assert Solution.remove_palindrome_sub("baabb") == 2
+assert Solution.remove_palindrome_sub("baab") == 1
