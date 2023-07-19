@@ -30,6 +30,7 @@ m == accounts.length
 n == accounts[i].length
 1 <= m, n <= 50
 1 <= accounts[i][j] <= 100"""
+import timeit
 from typing import List
 
 
@@ -38,7 +39,17 @@ class Solution:
     def maximum_wealth(accounts: List[List[int]]) -> int:
         return max(map(sum, accounts))
 
+    @staticmethod
+    def alternative_maximum_wealth(accounts: List[List[int]]) -> int:
+        accounts.sort(key=lambda x: sum(x), reverse=True)
+        return sum(accounts[0])
+
 
 assert Solution.maximum_wealth([[1, 2, 3], [3, 2, 1]]) == 6
 assert Solution.maximum_wealth([[1, 5], [7, 3], [3, 5]]) == 10
 assert Solution.maximum_wealth([[2, 8, 7], [7, 1, 3], [1, 9, 5]]) == 17
+
+assert Solution.alternative_maximum_wealth([[1, 2, 3], [3, 2, 1]]) == 6
+assert Solution.alternative_maximum_wealth([[1, 5], [7, 3], [3, 5]]) == 10
+assert Solution.alternative_maximum_wealth(
+    [[2, 8, 7], [7, 1, 3], [1, 9, 5]]) == 17
