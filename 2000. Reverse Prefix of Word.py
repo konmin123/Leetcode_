@@ -39,9 +39,7 @@ class Solution:
     def reverse_prefix(word: str, ch: str) -> str:
         if ch in word:
             ch_index = word.index(ch)
-            prefix = word[:ch_index + 1]
-            suffix = word[ch_index + 1:]
-            return prefix[::-1] + suffix
+            return word[:ch_index + 1][::-1] + word[ch_index + 1:]
         return word
 
 
