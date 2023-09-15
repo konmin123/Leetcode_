@@ -29,16 +29,12 @@ class Solution:
         dict_count = {'0': 0, '1': 0, '2': 0}
         for num in nums:
             dict_count[str(num)] += 1
+        cur_color = 0
         for index, num in enumerate(nums):
-            if dict_count['0'] > 0:
-                nums[index] = 0
-                dict_count['0'] -= 1
-            elif dict_count['1'] > 0:
-                nums[index] = 1
-                dict_count['1'] -= 1
-            else:
-                nums[index] = 2
-                dict_count['2'] -= 1
+            if dict_count[str(cur_color)] == 0:
+                cur_color += 1
+            nums[index] = cur_color
+            dict_count[str(cur_color)] -= 1
 
 
 arr_1 = [2, 0, 2, 1, 1, 0]
