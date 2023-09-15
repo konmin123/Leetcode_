@@ -36,11 +36,27 @@ class Solution:
             nums[index] = cur_color
             dict_count[str(cur_color)] -= 1
 
+    @staticmethod
+    def sort_colors_best(arr: List[int]) -> None:
+        border_l = 0
+        border_r = len(arr) - 1
+        cur_index = 0
+
+        while cur_index <= border_r:
+            if arr[cur_index] == 0:
+                arr[cur_index], arr[border_l] = arr[border_l], arr[cur_index]
+                border_l += 1
+            elif arr[cur_index] == 2:
+                arr[cur_index], arr[border_r] = arr[border_r], arr[cur_index]
+                border_r -= 1
+                cur_index -= 1
+            cur_index += 1
+
 
 arr_1 = [2, 0, 2, 1, 1, 0]
-Solution.sort_colors(arr_1)
+Solution.sort_colors_best(arr_1)
 assert arr_1 == [0, 0, 1, 1, 2, 2]
 
 arr_1 = [2, 0, 1]
-Solution.sort_colors(arr_1)
+Solution.sort_colors_best(arr_1)
 assert arr_1 == [0, 1, 2]
