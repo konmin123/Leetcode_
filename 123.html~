@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        /* Заголовок */
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Контейнер с проектами */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Карточка проекта */
+        .project-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        /* Изображение проекта */
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        /* Заголовок проекта */
+        .project-card h3 {
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+        }
+
+        /* Описание проекта */
+        .project-card p {
+            padding: 10px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Developer Portfolio</h1>
+
+    <div class="projects">
+        <div class="project-card">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a est ut justo sodales auctor.</p>
+        </div>
+        <div class="project-card">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a est ut justo sodales auctor.</p>
+        </div>
+        <div class="project-card">
+            <img src="project3.jpg" alt="Project 3">
+            <h3>Project 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a est ut justo sodales auctor.</p>
+        </div>
+    </div>
+</body>
+</html>
